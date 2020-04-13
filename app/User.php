@@ -33,7 +33,13 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    protected $casts = [];
+
+	public function tickets() {
+		return $this->hasMany('App\Ticket');
+	}
+
+	public function ticketMessages() {
+		return $this->hasMany('App\TicketMessage');
+	}
 }
